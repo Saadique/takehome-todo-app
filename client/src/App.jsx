@@ -158,9 +158,8 @@ export default function App() {
         <Stack gap={6} align="center">
           <Title order={1}>TODO App</Title>
           <Group gap="xs">
-            <Badge variant="light">Total: {todos.length}</Badge>
-            <Badge color="green" variant="light">Done: {doneList.length}</Badge>
             <Badge color="blue" variant="light">Todo: {todoList.length}</Badge>
+            <Badge color="green" variant="light">Done: {doneList.length}</Badge>
           </Group>
         </Stack>
       </Center>
