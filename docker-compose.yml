@@ -1,0 +1,36 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: takehome_todo_mongo
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_DATABASE: todoapp
+    volumes:
+      - todo_mongo_data:/data/db
+    networks:
+      - todo_net
+    ports:
+      - "127.0.0.1:27021:27017"
+
+  api:
+    image: node:20-alpine
+    container_name: takehome_todo_api
+    working_dir: /app
+    volumes:
+      - ./server:/app
+    command: sh -c "npm install && npm run dev"
+    environment:
+      PORT: 4001
+      MONGODB_URI: mongodb://mongo:27017/todoapp
+    ports:
+      - "4001:4001"
+    depends_on:
+      - mongo
+    networks:
+      - todo_net
+
+volumes:
+  todo_mongo_data:
+
+networks:
+  todo_net:
