@@ -12,8 +12,10 @@ REST API for a simple TODO application.
 
 From the project root:
 
+```bash
 docker compose -p takehome_todo up -d
 docker compose -p takehome_todo logs -f api
+```
 
 ## Environment variables (already added at docker-compose.yml)
  - PORT (default: 4001) 
