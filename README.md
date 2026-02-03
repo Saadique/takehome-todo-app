@@ -16,5 +16,4 @@ npm install
 npm run dev
 ```
 
-
 ### For more details please refer readme files inside client and server directory
